@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CivicRoutes Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+    }
+
+    nav {
+      background-color: #ffffff;
+      padding: 10px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4a4a4a;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #007BFF;
+    }
+
+    .chat-icon {
+      width: 24px;
+      vertical-align: middle;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      background: #4A90E2;
+      color: white;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .image-container {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .image-container img {
+      width: 200px;
+      max-width: 90%;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #4A90E2;
+      color: white;
+      border-radius: 20px 20px 0 0;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
+    <a href="/report">Report Issue</a>
+  </div>
+  <div>
+    <a href="{{ url_for('routes.chatbot') }}"> <!-- Updated to use 'routes.chatbot' -->
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Chatbot" style="height:30px;">
+    </a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>Welcome to CivicRoutes</h1>
+  <p>Your smart citizen traffic portal</p>
+</div>
+
+<div class="image-container">
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="CivicRoutes Logo">
+</div>
+
+<footer>
+  <p>&copy; 2025 CivicRoutes</p>
+</footer>
+
+</body>
+</html>

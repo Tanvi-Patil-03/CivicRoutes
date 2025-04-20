@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Reported Issues</h1>
+
+        <div class="report-item">
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='sample-image.jpg') }}" alt="Issue Image">
+            </div>
+            <p>Issue reported: Pothole on Main Street</p>
+            <p>Posted by: user@example.com</p>
+        </div>
+
+        <!-- Add more reports as needed -->
+    </div>
+</body>
+</html>

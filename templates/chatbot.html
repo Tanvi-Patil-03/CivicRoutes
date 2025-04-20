@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CivicRoutes Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat-container {
+            max-width: 600px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #1e90ff;
+            color: white;
+            padding: 15px;
+            font-size: 20px;
+        }
+
+        .chat-box {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 20px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background: #e1ffc7;
+            align-self: flex-end;
+            padding: 10px 15px;
+        }
+
+        .bot-message {
+            background: #f1f0f0;
+            align-self: flex-start;
+        }
+
+        .chat-input {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input input {
+            flex: 1;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        .chat-input button {
+            background: #1e90ff;
+            color: white;
+            border: none;
+            padding: 10px 15px;  /* Reduced padding */
+            font-size: 14px;      /* Slightly smaller text */
+            cursor: pointer;
+            border-radius: 0 5px 5px 0; /* Optional: Add rounding for style */
+        }
+
+        .logo {
+            width: 40px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="{{ url_for('static', filename='logo.png') }}" class="logo" alt="Logo">
+            CivicRoutes Chatbot
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message message">Hi! I'm your CivicRoutes assistant. Ask me anything!</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const input = document.getElementById("user-input");
+            const chatBox = document.getElementById("chat-box");
+
+            const userMsg = input.value;
+            if (!userMsg.trim()) return;
+
+            const userDiv = document.createElement("div");
+            userDiv.className = "user-message message";
+            userDiv.textContent = userMsg;
+            chatBox.appendChild(userDiv);
+
+            const botDiv = document.createElement("div");
+            botDiv.className = "bot-message message";
+            botDiv.textContent = "I'm just a demo bot, but I got your message: " + userMsg;
+            chatBox.appendChild(botDiv);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
